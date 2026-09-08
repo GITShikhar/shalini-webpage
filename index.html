@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey,its Shalini  — daily vlogs, real reach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F3F1FB;
+    --bg-soft: #ffffff;
+    --ink: #181733;
+    --coral: #FF5D73;
+    --coral-deep: #E8425A;
+    --yellow: #FFC93C;
+    --mint: #6FE0B8;
+    --line: rgba(24,23,51,0.12);
+    --radius-lg: 28px;
+    --radius-sm: 10px;
+    --maxw: 1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Bricolage Grotesque',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  :focus-visible{outline:3px solid var(--ink);outline-offset:3px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(243,241,251,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;padding-bottom:16px;
+  }
+  .wordmark{
+    font-size:1.25rem;font-weight:700;
+    display:flex;align-items:center;gap:8px;
+  }
+  .wordmark .dot{width:10px;height:10px;border-radius:50%;background:var(--coral);display:inline-block;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:12px 22px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    border:2px solid var(--ink);
+    background:var(--ink);
+    color:var(--bg);
+    cursor:pointer;
+    transition:transform 0.15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn.ghost{background:transparent;color:var(--ink);}
+
+  /* HERO */
+  .hero{padding:64px 0 40px;}
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  .kicker{
+    font-weight:600;color:var(--coral-deep);
+    margin-bottom:14px;font-size:1rem;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    font-weight:700;
+    line-height:1.05;
+  }
+  .hero p.sub{
+    margin-top:20px;
+    font-size:1.15rem;
+    max-width:46ch;
+    color:rgba(24,23,51,0.75);
+  }
+  .hero-cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
+
+  .phone-stack{position:relative;height:420px;}
+  
+  .hero-photo{
+    width:440px;
+    max-width:100%;
+    height:auto;
+    display:block;
+    position:relative;
+    z-index:1;
+    margin-top:-170px;
+    filter:drop-shadow(0 20px 30px rgba(24,23,51,0.25));
+  }
+  .story-card{
+    position:absolute;
+    width:190px;height:340px;
+    border-radius:22px;
+    padding:16px;
+    color:#fff;
+    display:flex;flex-direction:column;justify-content:space-between;
+    box-shadow:0 18px 40px rgba(24,23,51,0.22);
+    opacity:0;
+    animation:riseIn 0.7s cubic-bezier(.2,.9,.3,1) forwards;
+  }
+  .story-card .tag{font-size:0.78rem;font-weight:600;opacity:0.9;}
+  .story-card .cap{font-family:'Bricolage Grotesque',sans-serif;font-size:1.3rem;font-weight:700;}
+  .story-card .time{font-size:0.75rem;opacity:0.85;}
+  .s1{background:linear-gradient(160deg,var(--coral),var(--coral-deep));left:0;top:40px;transform:rotate(-7deg);animation-delay:0.05s;z-index:3;}
+  .s2{background:linear-gradient(160deg,#7C6CF0,#4C3AD1);left:110px;top:0;transform:rotate(4deg);animation-delay:0.2s;z-index:2;}
+  .s3{background:linear-gradient(160deg,var(--mint),#2FAE85);left:60px;top:130px;transform:rotate(11deg);animation-delay:0.35s;z-index:1;}
+  @keyframes riseIn{
+    from{opacity:0;transform:translateY(30px) rotate(var(--r,0deg));}
+    to{opacity:1;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .story-card{animation:none;opacity:1;}
+  }
+
+  /* STATS TICKER */
+  .stats{padding:20px 0 60px;}
+  .stats-row{
+    display:flex;gap:16px;overflow-x:auto;padding:10px 4px 20px;
+    scrollbar-width:none;
+  }
+  .stats-row::-webkit-scrollbar{display:none;}
+  .stat-chip{
+    flex:0 0 auto;
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:20px 26px;
+    min-width:180px;
+    transform:rotate(var(--tilt,0deg));
+  }
+  .stat-chip:nth-child(1){--tilt:-2deg;}
+  .stat-chip:nth-child(2){--tilt:1.5deg;}
+  .stat-chip:nth-child(3){--tilt:-1deg;}
+  .stat-chip:nth-child(4){--tilt:2deg;}
+  .stat-chip .num{font-family:'Bricolage Grotesque',sans-serif;font-size:2rem;font-weight:700;}
+  .stat-chip .lbl{font-size:0.85rem;color:rgba(24,23,51,0.65);margin-top:2px;}
+
+  /* SECTION HEADINGS */
+  section{padding:60px 0;}
+  .section-head{max-width:56ch;margin-bottom:36px;}
+  .section-head h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;}
+  .section-head p{margin-top:12px;color:rgba(24,23,51,0.7);font-size:1.05rem;}
+
+  /* DAILY TIMELINE */
+  .timeline{
+    display:flex;gap:0;overflow-x:auto;padding-bottom:10px;
+    scrollbar-width:none;
+  }
+  .timeline::-webkit-scrollbar{display:none;}
+  .tl-item{
+    flex:0 0 220px;
+    padding:20px 22px 22px;
+    border-left:2px solid var(--ink);
+    position:relative;
+  }
+  .tl-item::before{
+    content:'';position:absolute;left:-7px;top:20px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--coral);
+  }
+  .tl-item .time{font-weight:700;font-size:0.95rem;color:var(--coral-deep);}
+  .tl-item h3{font-size:1.1rem;margin-top:6px;font-weight:700;}
+  .tl-item p{margin-top:6px;font-size:0.92rem;color:rgba(24,23,51,0.68);}
+
+  /* AUDIENCE */
+  .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .bar-group{margin-bottom:18px;}
+  .bar-label{display:flex;justify-content:space-between;font-size:0.92rem;font-weight:600;margin-bottom:6px;}
+  .bar-track{background:rgba(24,23,51,0.08);border-radius:8px;height:12px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:8px;background:var(--coral);}
+  .loc-list{list-style:none;padding:0;margin:0;}
+  .loc-list li{
+    display:flex;justify-content:space-between;
+    padding:12px 0;border-bottom:1px solid var(--line);
+    font-size:0.98rem;
+  }
+  .loc-list li:first-child{padding-top:0;}
+  .loc-list strong{font-weight:700;}
+
+  /* BRAND MARQUEE */
+  .marquee-wrap{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;}
+  .marquee{display:flex;gap:56px;white-space:nowrap;animation:scroll 22s linear infinite;width:max-content;}
+  .marquee span{font-family:'Bricolage Grotesque',sans-serif;font-size:1.3rem;font-weight:700;color:rgba(24,23,51,0.45);}
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion: reduce){.marquee{animation:none;}}
+
+  /* PACKAGES */
+  .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch;}
+  .pkg{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    padding:30px 26px;
+    display:flex;flex-direction:column;
+  }
+  .pkg.mid{
+    background:var(--ink);color:var(--bg);
+    border-radius:var(--radius-lg);
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(24,23,51,0.25);
+  }
+  .pkg:not(.mid){border-radius:var(--radius-sm);}
+  .pkg .name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.3rem;}
+  .pkg .price{margin-top:8px;font-size:1.6rem;font-weight:700;}
+  .pkg ul{padding-left:18px;margin:18px 0;flex:1;}
+  .pkg li{margin-bottom:8px;font-size:0.95rem;}
+  .pkg.mid .btn{background:var(--coral);border-color:var(--coral);color:#fff;}
+  .pkg:not(.mid) .btn{background:transparent;border-color:var(--ink);color:var(--ink);}
+
+  /* TESTIMONIAL */
+  .testimonial{
+    background:linear-gradient(135deg,var(--coral),#7C6CF0);
+    border-radius:var(--radius-lg);
+    padding:48px;
+    color:#fff;
+  }
+  .testimonial p.quote{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:clamp(1.3rem,2.6vw,1.8rem);
+    font-weight:600;line-height:1.35;max-width:60ch;
+  }
+  .testimonial .who{margin-top:20px;font-size:0.95rem;opacity:0.9;}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;}
+  .chat-thread{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:26px;
+  }
+  .bubble{max-width:80%;padding:12px 16px;border-radius:16px;margin-bottom:12px;font-size:0.95rem;}
+  .bubble.them{background:rgba(24,23,51,0.06);border-bottom-left-radius:4px;}
+  .bubble.me{background:var(--coral);color:#fff;margin-left:auto;border-bottom-right-radius:4px;}
+  form{display:flex;flex-direction:column;gap:14px;}
+  label{font-size:0.9rem;font-weight:600;margin-bottom:4px;display:block;}
+  input,textarea,select{
+    width:100%;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1.5px solid var(--line);
+    font-family:'Inter',sans-serif;
+    font-size:0.95rem;
+    background:var(--bg-soft);
+  }
+  input:focus,textarea:focus,select:focus{border-color:var(--ink);}
+  textarea{min-height:100px;resize:vertical;}
+
+  footer{padding:40px 0 60px;border-top:1px solid var(--line);}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:0.9rem;color:rgba(24,23,51,0.6);}
+
+  @media (max-width:860px){
+    .hero-grid,.audience-grid,.contact-grid{grid-template-columns:1fr;}
+    .pkg-grid{grid-template-columns:1fr;}
+    .pkg.mid{transform:none;}
+    .phone-stack{height:320px;margin-top:20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="wordmark"><span class="dot"></span>Hey, it's Shalini</div>
+    <a href="#contact" class="btn">work with me</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">daily lifestyle vlogs </div>
+      <h1>A camera in my hand and a real audience that actually shows up.</h1>
+      <p class="sub">I film my ordinary day — Chaos, errands, Gossips — and turn it into something people watch on repeat. 1.72K of them, most days, before noon.</p>
+      <div class="hero-cta">
+        <a href="#packages" class="btn">Collab options</a>
+        <a href="#audience" class="btn ghost">My audience</a>
+      </div>
+    </div>
+    <div class="phone-stack">
+       <img class="hero-photo" src="image1.png" alt="Mira, smiling in the sun">
+    </div>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat-chip"><div class="num">2.2K</div><div class="lbl">followers across platforms</div></div>
+      <div class="stat-chip"><div class="num">1M+</div><div class="lbl">all time views</div></div>
+      <div class="stat-chip"><div class="num">8.9%</div><div class="lbl">engagement rate</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="daily">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What a day actually looks like</h2>
+      <p>No scripts, no reshoots — just pure emotions, filmed as it happens. Sponsor placements sit inside the moments people already trust.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item"><div class="time">7:00 AM</div><h3>Wake up + Drink water</h3><p>the day's opening scene, morning beauty and Le me chugging a glass of water </p></div>
+      <div class="tl-item"><div class="time">12:30 PM</div><h3>midday check-in</h3><p>errands, work and being lazy in the process — this is where product use feels native.</p></div>
+      <div class="tl-item"><div class="time">6:00 PM</div><h3>getting ready for being late</h3><p>highest rewatch rate of the day — a strong spot for hangouts, fitness & fast food</p></div>
+      <div class="tl-item"><div class="time">10:30 PM</div><h3>Introspection</h3><p>Productivity hours — where longer stories are trimmed down.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="audience">
+  <div class="wrap audience-grid">
+    <div>
+      <div class="section-head">
+        <h2>Who's actually watching</h2>
+        <p>Mostly women,feeling relatable </p>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>Women</span><span>71%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:71%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>Men</span><span>21%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:21%"></div></div>
+      </div>
+      <div class="section-head">
+        <h2>How young are watching</h2>
+        <p>teens and twenties, checking in more than once a day.</p>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>Age 13-18</span><span>25%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>Age 18–24</span><span>42%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:42%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>Age 25–34</span><span>33%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:33%"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-head">
+        <h2>Top locations</h2>
+        <p>Concentrated in North and Central India and other Hindi-speaking markets, which keeps campaigns easy to target.</p>
+      </div>
+      <ul class="loc-list">
+        <li><span>India</span><strong>74%</strong></li>
+        <li><span>Pakistan</span><strong>17%</strong></li>
+        <li><span>Nepal</span><strong>11%</strong></li>
+        <li><span>Bangladesh</span><strong>8%</strong></li>
+        <li><span>Everywhere else</span><strong>10%</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span> SKINCARE</span><span>DAILY GRIND</span><span>FOOD CHALLENGES</span><span>SPIRITUALITY</span><span>STORY TIME</span><span> GRWM </span><span>SKINCARE</span><span>DAILY GRIND</span> <span>  FOOD CHALLENGES  </span><span>  SPIRITUALITY  </span><span>  STORY TIME  </span><span> GRWM </span>
+  </div>
+</div>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Ways to work together</h2>
+      <p>Every package is filmed inside a real day — not a separate ad break.</p>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg">
+        <div class="name">Shoutout</div>
+        <ul>
+          <li>60–90 sec mention inside a daily vlog</li>
+          <li>Placed in the natural flow of the day</li>
+        </ul>
+        <a href="#contact" class="btn">ask about this</a>
+      </div>
+      <div class="pkg mid">
+        <div class="name">Integration</div>
+        <ul>
+          <li>Product woven into 2–3 daily uploads</li>
+          <li>Dedicated segment + link in every caption</li>  
+        </ul>
+        <a href="#contact" class="btn">ask about this</a>
+      </div>
+      <div class="pkg">
+        <div class="name">Day Takeover</div>
+        <ul>
+          <li>An entire day's vlog built around your brand</li>
+          <li>Cross-posted to all platforms</li>
+        </ul>
+        <a href="#contact" class="btn">ask about this</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="testimonial">
+      <p class="quote">"Shalini's integration outperformed our other creator spots by 3x on click-through. It felt like a real recommendation, not an ad."</p>
+      <div class="who">— Partnerships Lead, HS SOLUTIONS</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-head">
+        <h2>Let's figure out the details</h2>
+        <p>Tell me a bit about the brand and budget, and I'll reply within 2 business days.</p>
+      </div>
+      <div class="chat-thread">
+        <div class="bubble them">hey! love your daily uploads — got a spot for a wellness brand?</div>
+        <div class="bubble me">always down to hear more — send details my way 👇</div>
+      </div>
+    </div>
+    <form onsubmit="event.preventDefault();
+      var brand = document.getElementById('brand').value;
+      var email = document.getElementById('email').value;
+      var budget = document.getElementById('budget').value;
+      var msg = document.getElementById('msg').value;
+      var subject = 'Sponsorship inquiry from ' + brand;
+      var body = msg + '\n\nBudget: ' + budget + '\nReply to: ' + email;
+      var gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=shikharb421ad3@gmail.com&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      window.open(gmailUrl, '_blank');
+    ">
+      <div>
+        <label for="brand">Brand name</label>
+        <input id="brand" type="text" required placeholder="e.g. Glowlab Skincare">
+      </div>
+      <div>
+        <label for="email">Your email</label>
+        <input id="email" type="email" required placeholder="you@brand.com">
+      </div>
+      <div>
+        <label for="budget">Budget range</label>
+        <select id="budget">
+          <option>Under ₹1,000</option>
+          <option>₹1,000 – ₹3,000</option>
+          <option>₹3,000 – ₹6,000</option>
+          <option>₹6,000+</option>
+        </select>
+      </div>
+      <div>
+        <label for="msg">What are you hoping to promote?</label>
+        <textarea id="msg" required placeholder="Tell me about the product and what success looks like"></textarea>
+      </div>
+      <button type="submit" class="btn">send it over</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+        Credits: Shikhar Tiwari
+    </div>
+    
+    <div>shalinipathak157@gmail.com</div>
+  </div>
+</footer>
+
+</body>
+</html>
